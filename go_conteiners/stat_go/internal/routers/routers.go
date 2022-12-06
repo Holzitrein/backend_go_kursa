@@ -7,27 +7,27 @@ import (
 )
 
 func Routes(route *gin.Engine) {
-	route.GET("/group/:id", entity.GetGroup)
-	route.POST("/group", entity.AddGroup)
-	route.DELETE("/group", entity.DelGroup)
+	route.GET("/api/group/:id", entity.GetGroup)
+	route.POST("/api/group", entity.AddGroup)
+	route.DELETE("/api/group", entity.DelGroup)
 
-	route.GET("/subject/:id", entity.GetSubject)
-	route.POST("/subject", entity.AddSubject)
-	route.DELETE("/subject", entity.DelSubject)
+	route.GET("/api/subject/:id", entity.GetSubject)
+	route.POST("/api/subject", entity.AddSubject)
+	route.DELETE("/api/subject", entity.DelSubject)
 
-	route.GET("/teacher/:id", entity.GetTeacher)
-	route.POST("/teacher", entity.AddTeacher)
-	route.DELETE("/teacher", entity.DelTeacher)
+	route.GET("/api/teacher/:id", entity.GetTeacher)
+	route.POST("/api/teacher", entity.AddTeacher)
+	route.DELETE("/api/teacher", entity.DelTeacher)
 
-	route.GET("/student/:id", entity.GetStudent)
-	route.POST("/student", entity.AddStudent)
-	route.DELETE("/student", entity.DelStudent)
+	route.GET("/api/student/:id", entity.GetStudent)
+	route.POST("/api/student", entity.AddStudent)
+	route.DELETE("/api/student", entity.DelStudent)
 
-	route.GET("/place/:id", entity.GetPlace)
-	route.POST("/place", entity.AddPlace)
-	route.DELETE("/place", entity.DelPlace)
+	route.GET("/api/place/:id", entity.GetPlace)
+	route.POST("/api/place", entity.AddPlace)
+	route.DELETE("/api/place", entity.DelPlace)
 
-	route.GET("/retake/:id", entity.GetRetake)
-	route.POST("/retake", entity.AddRetake)
-	route.DELETE("/retake", entity.DelRetake)
+	route.GET("/api/retake/:id", entity.GetRetake)
+	route.POST("/api/retake", entity.AddRetake)
+	route.DELETE("/api/retake", entity.DelRetake)
 }

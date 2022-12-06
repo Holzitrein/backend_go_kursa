@@ -26,12 +26,12 @@ func ProxyRequestHandler(proxy *httputil.ReverseProxy) func(http.ResponseWriter,
 
 func main() {
 	// initialize a reverse proxy and pass the actual backend server url here
-	proxy, err := NewProxy("http://my-api-server.com")
+	proxy, err := NewProxy("http://golang_stat:8080")
 	if err != nil {
 		panic(err)
 	}
-
-	// handle all requests to your server using the proxy
-	http.HandleFunc("/", ProxyRequestHandler(proxy))
+	log.Print("Starts")
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./site"))))
+	http.HandleFunc("/api/", ProxyRequestHandler(proxy))
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

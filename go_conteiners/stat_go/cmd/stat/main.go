@@ -6,6 +6,7 @@ import (
 	"retake_stat/internal/entity"
 	"retake_stat/internal/routers"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5"
 )
@@ -20,8 +21,10 @@ func main() {
 		//os.Exit(1)
 	}
 	entity.SetDb(conn)
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
 
+	router.Use(cors.New(config))
 	defer conn.Close(context.Background())
-	//router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.Run(":8080")
 }

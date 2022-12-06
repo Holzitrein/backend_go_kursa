@@ -11,30 +11,28 @@ services:
       - ./init/sql:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
-#  golang_gateway:
-#    build:
-#      context: ./go_conteiners/gateway_go
-#      dockerfile: Dockerfile
-#    restart: always
-#    ports:
-#      - 8000:8080
-#    links:
-#      - golang_admin
-#      - golang_stat
-#      - database
-#  golang_admin:
-#    build:
-#      context: ./go_conteiners/admin_go
-#      dockerfile: Dockerfile
-#    restart: always
-#    links:
-#      - database
+  golang_gateway:
+    build:
+      context: ./go_conteiners/gateway_go
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      #  - golang_admin
+      - golang_stat
+      - database
+  #  golang_admin:
+  #    build:
+  #      context: ./go_conteiners/admin_go
+  #      dockerfile: Dockerfile
+  #    restart: always
+  #    links:
+  #      - database
   golang_stat:
     build:
       context: ./go_conteiners/stat_go
       dockerfile: Dockerfile
     restart: always
-    ports:
-      - "8080:8080"
     links:
       - database

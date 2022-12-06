@@ -1,3 +1,3 @@
-module retake_gateway/cmd/gateway
+module retake_gateway
 
 go 1.19
